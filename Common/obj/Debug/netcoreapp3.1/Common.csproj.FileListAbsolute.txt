@@ -1,0 +1,9 @@
+C:\Users\wafaa\source\repos\ClincERD\Common\bin\Debug\netcoreapp3.1\Common.deps.json
+C:\Users\wafaa\source\repos\ClincERD\Common\bin\Debug\netcoreapp3.1\Common.dll
+C:\Users\wafaa\source\repos\ClincERD\Common\bin\Debug\netcoreapp3.1\Common.pdb
+C:\Users\wafaa\source\repos\ClincERD\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfoInputs.cache
+C:\Users\wafaa\source\repos\ClincERD\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfo.cs
+C:\Users\wafaa\source\repos\ClincERD\Common\obj\Debug\netcoreapp3.1\Common.csproj.CoreCompileInputs.cache
+C:\Users\wafaa\source\repos\ClincERD\Common\obj\Debug\netcoreapp3.1\Common.dll
+C:\Users\wafaa\source\repos\ClincERD\Common\obj\Debug\netcoreapp3.1\Common.pdb
+C:\Users\wafaa\source\repos\ClincERD\Common\obj\Debug\netcoreapp3.1\Common.csprojAssemblyReference.cache

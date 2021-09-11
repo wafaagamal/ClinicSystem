@@ -1,0 +1,131 @@
+﻿@model List<Business.Presentation.AppointmentResultVM>
+
+@{
+    ViewData["Title"] = "MyAppointments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <div class="form-group">
+        <div>
+            <input placeholder="From" type="text" id="From" name="From" value="" class="form-control" size="30">
+            <input placeholder="To" type="text" id="To" name="To" value="" class="form-control" size="30">
+
+            @Html.DropDownList("myDays", new List<SelectListItem>
+                    {
+                       new SelectListItem{ Text="Sunday", Value = "0" ,Selected=true},
+                       new SelectListItem{ Text="Monday", Value = "1" },
+                       new SelectListItem{ Text="Tuesday", Value = "2" },
+                       new SelectListItem{ Text="Wednesday", Value = "3" },
+                       new SelectListItem{ Text="Thursday", Value = "4" },
+                       new SelectListItem{ Text="Friday", Value = "5" },
+                       new SelectListItem{ Text="Saturday", Value = "6" }
+                    }, "Select Day", new { @class = "form-control", @onchange = "getVal()" })
+        </div>
+        <input type="button" class="btn btn-primary" id="btnGet" value="Search" onclick="Search(document.getElementById('From').value, document.getElementById('To').value)" />
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>  Patient.Id </th>
+                <th>  Patient.Name </th>
+                <th>  Patient.Age </th>
+                <th>  Patient.Address </th>
+                <th>  Patient.BirthDate </th>
+                <th>  Patient.MobileNumber </th>
+                <th>  Schedule.From </th>
+                <th>  Schedule.To </th>
+                <th>  Schedule.Day </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Patient.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Patient.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Patient.age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Patient.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Patient.BirthDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Patient.MobileNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Schedule.From)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Schedule.To)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Schedule.Day)
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+    <div id='myModal' class='modal'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id='myModalContent'></div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script type="text/javascript">
+    var id = 0;
+    function getVal() {
+        id = document.getElementById("myDays").value;
+    }
+    function Search(from, to) {
+        $.ajax({
+            type: "GET",
+                    url: "/Doctor/AppointmentsByRange",
+                    data: {
+                        id:@Url.ActionContext.RouteData.Values["id"],
+                        from: from,
+                        to: to,
+                        myDays:id
+                    },
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        $(document).ready(function () {
+                            $("#result").dialog({
+                                autoOpen: false,
+                                title: 'Title',
+                                width: 500,
+                                height: 'auto',
+                                modal: true
+                            });
+                        });
+                    },
+                    failure: function (response) {
+                        alert("failure"+response);
+                    },
+           error: function (response) {
+               alert("ERROR" + response.responseText);
+                    }
+            });
+    };
+
+    function openPopup() {
+        $("#result").dialog("open");
+    }
+       
+</script>

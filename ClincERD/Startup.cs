@@ -1,11 +1,16 @@
+using Business.Contracts;
+using Business.Repositories;
+using Domain.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +31,22 @@ namespace ClincERD
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddDbContext<ClinicContext>(option => option.UseSqlServer(
+             Configuration.GetConnectionString("Connection")));
+            services.AddSwaggerGen();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+               builder =>
+               {
+                   builder
+                   .AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+               });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,7 +59,15 @@ namespace ClincERD
 
             app.UseHttpsRedirection();
 
+           
             app.UseRouting();
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My Clinc API V1");
+            });
+            app.UseCors("AllowAll");
 
             app.UseAuthorization();
 

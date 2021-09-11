@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Logic\" />
-    <Folder Include="Presentation\" />
+    <PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.3" />
   </ItemGroup>
 
   <ItemGroup>

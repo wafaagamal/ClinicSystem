@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wrb_ClincERD", "ClincERD\Wrb_ClincERD.csproj", "{075311FE-F6CC-4EA9-8458-D5FF6427D17D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web_ClinicERD", "ClincERD\Web_ClinicERD.csproj", "{075311FE-F6CC-4EA9-8458-D5FF6427D17D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{AFF08E78-56D8-4B21-B61B-1A470857DABF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{AFF08E78-56D8-4B21-B61B-1A470857DABF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{C4D0B28D-B4F3-413B-A3AB-23FF4574C0ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{C4D0B28D-B4F3-413B-A3AB-23FF4574C0ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{D3B4B6CA-2242-4566-9A2E-7ACFEE330083}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{D3B4B6CA-2242-4566-9A2E-7ACFEE330083}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_Clinic", "MVC_Clinic\MVC_Clinic.csproj", "{E306E80A-6283-40B7-BB1D-19F9A4F9AF7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D3B4B6CA-2242-4566-9A2E-7ACFEE330083}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3B4B6CA-2242-4566-9A2E-7ACFEE330083}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3B4B6CA-2242-4566-9A2E-7ACFEE330083}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E306E80A-6283-40B7-BB1D-19F9A4F9AF7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E306E80A-6283-40B7-BB1D-19F9A4F9AF7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E306E80A-6283-40B7-BB1D-19F9A4F9AF7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E306E80A-6283-40B7-BB1D-19F9A4F9AF7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

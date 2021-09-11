@@ -27,7 +27,7 @@ namespace Business.Repositories
             return Context.Set<TEntity>().Find(id);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public IEnumerable<TEntity> GetALL()
         {
             return Context.Set<TEntity>().ToList();
         }
